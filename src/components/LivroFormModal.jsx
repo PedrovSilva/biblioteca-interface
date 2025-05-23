@@ -7,7 +7,7 @@ export default function LivroFormModal({ onClose }) {
   const [files, setFiles] = useState({ capa: null, pdf: null })
 
   useEffect(() => {
-    listarGeneros().then(res => setGeneros(res.data))
+    listarGeneros().then(res => setGeneros(Array.isArray(res.data) ? res.data : res.data.generos || []))
   }, [])
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
