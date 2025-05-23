@@ -27,14 +27,15 @@ export default function Home() {
         {livros.map(livro => (
           <div
             key={livro._id}
-            className="cursor-pointer border rounded shadow"
+            className="cursor-pointer border rounded shadow flex flex-col items-center p-2 hover:shadow-lg transition"
             onClick={() => navigate(`/livros/${livro._id}`)}
           >
             <img
               src={`data:image/jpeg;base64,${livro.capa}`}
               alt={livro.titulo}
-              className="w-full h-48 object-cover"
+              className="w-full h-64 object-cover mb-2 rounded"
             />
+            <h2 className="text-center font-medium text-sm line-clamp-2">{livro.titulo}</h2>
           </div>
         ))}
       </div>

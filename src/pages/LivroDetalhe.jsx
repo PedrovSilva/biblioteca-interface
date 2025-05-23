@@ -32,7 +32,7 @@ export default function LivroDetalhe() {
       <div>
         <h1 className="text-3xl font-bold mb-2">{livro.titulo}</h1>
         <p className="text-lg mb-1"><strong>Autor:</strong> {livro.autor}</p>
-        <p className="text-lg mb-4"><strong>Ano:</strong> {livro.ano}</p>
+        <p className="text-lg mb-4"><strong>Ano de publicação:</strong> {livro.ano}</p>
         <button
           onClick={handleDownload}
           className="bg-green-600 text-white px-4 py-2 rounded shadow"
