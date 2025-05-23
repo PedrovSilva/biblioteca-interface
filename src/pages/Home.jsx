@@ -9,7 +9,7 @@ export default function Home() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    listarLivros().then(res => setLivros(res.data.livros || res.data))
+    listarLivros().then(res => setLivros(Array.isArray(res.data) ? res.data : res.data.livros || []))
   }, [modalAberto])
 
   return (
