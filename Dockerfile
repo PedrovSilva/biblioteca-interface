@@ -1,24 +1,20 @@
-# Dockerfile para React App (Create React App)
+# Imagem base com Node.js
 FROM node:20-alpine
 
 # Diretório de trabalho
 WORKDIR /app
 
-# Copia arquivos de dependências
+# Copia os arquivos de dependências
 COPY package*.json ./
 
-# Instala dependências
+# Instala as dependências
 RUN npm install
 
-# Copia todo o código
+# Copia o restante da aplicação
 COPY . .
 
-# Build do projeto para produção
-RUN npm run build
-
-# Servidor estático com serve
-RUN npm install -g serve
-CMD ["serve", "-s", "build", "-l", "3000"]
-
-# Expõe a porta padrão
+# Exponha a porta usada pelo CRA (por padrão 3000)
 EXPOSE 3000
+
+# Comando para iniciar o servidor de desenvolvimento
+CMD ["npm", "start"]
