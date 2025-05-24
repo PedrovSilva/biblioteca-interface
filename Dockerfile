@@ -2,16 +2,13 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
-
-EXPOSE 3000
-
-RUN npm install
-
 COPY . .
 
-RUN npm run build
+# Instala dependências antes
+RUN npm install
 
-RUN npm install -g serve
+# Expõe porta de produção
+EXPOSE 3000
 
-CMD ["serve", "-s", "build", "-l", "3000"]
+# Faz o build no momento de execução e serve
+CMD npm run build && npx serve -s build -l 3000
